@@ -1,0 +1,120 @@
+<div class="container ">
+    <div class="mycard">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="myleftctn">
+                    <form #form1="ngForm" class="myform text-center" (ngSubmit)="onSubmit()" novalidate>
+                        <header class="text-center" id="h3"></header>
+                        <header class="text-center">Create Your Account </header>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" #name='ngModel' name="username"
+                                        [class.is-invalid]="name.invalid && name.touched" required
+                                        [(ngModel)]='user1.name' class="form-control" id="myinput"
+                                        placeholder="First Name">
+                                    <small class="text-danger" [class.d-none]="name.valid || name.untouched">First name
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" #lname='ngModel' name="lname"
+                                        [class.is-invalid]="lname.invalid && lname.touched" required
+                                        [(ngModel)]='user1.lname' class="form-control" id="myinput"
+                                        placeholder="Last Name">
+                                    <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last name
+                                        is required</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="email" #email="ngModel" required
+                                        [class.is-invalid]="email.invalid && email.touched" name="email"
+                                        [(ngModel)]='user1.email' class="form-control" id="myinput" placeholder="Email">
+                                    <small class="text-danger" [class.d-none]='email.valid || email.untouched'>Email is
+                                        required</small>
+                                        <small class="text-danger" *ngIf='token==1'>user already exists</small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="password" #pass='ngModel' name="pass"
+                                        [class.is-invalid]="pass.invalid && pass.touched" required
+                                        [(ngModel)]='user1.pass' class="form-control" minlength="6" id="myinput"
+                                        placeholder="Password"  (click)="invalidemail()">
+                                    <!-- <small class="text-danger" [class.d-none]="pass.valid || pass.untouched">This is required</small> -->
+                                    <div *ngIf="pass.errors && (pass.touched && pass.invalid)">
+                                        <small class="text-danger" *ngIf="pass.errors.required">Password is
+                                            required</small>
+                                        <small class="text-danger" *ngIf="pass.errors.minlength">Password must be at
+                                            least 6 characters</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <!-- <label>Confirm Password </label> -->
+                                    <input type="password" #conpass='ngModel' name="conpass"
+                                        [class.is-invalid]="conpass.invalid && conpass.touched" required
+                                        [(ngModel)]='user1.conpass' class="form-control" minlength="6" id="myinput"
+                                        placeholder="Confirm Password">
+                                    <!-- <small class="text-danger" [class.d-none]="pass.valid || pass.untouched">This is required</small> -->
+                                    <div *ngIf="conpass.errors && (conpass.touched && conpass.invalid)">
+                                        <small class="text-danger" *ngIf="conpass.value != pass.value">Password not
+                                            matched</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div ngModelaGroup="Address"> -->
+
+
+
+
+                        <br>
+
+                        <button class="btn btn-dark " id="butt" [disabled]='!form1.form.valid'>Register</button><br><br>
+                            <h5 id="h1"></h5>
+     
+                        <h6>Already have an account ? <a routerLink="/login">LogIn</a></h6>
+
+
+
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="myrightctn">
+                    <div class="box">
+                        <header>Stackoverflow</header>
+                        <p>
+                            Stack Overflow is a question and answer site for professional
+                            and enthusiast programmers. It is a privately held website, the
+                            flagship site of the Stack Exchange Network, created in
+                            2008 by Jeff Atwood and Joel Spolsky. It features questions
+                            and answers on a wide range of topics in computer programming.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
